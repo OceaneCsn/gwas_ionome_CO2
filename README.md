@@ -29,6 +29,8 @@ The `data_preprocessing` folder contains several scripts for data import and cle
 The `phenotypic_variability` folder contains the analyses of the natural variability in three populations of Arabidopsis.
 
 
-+ `phenotypes_distributions.R` show the distribution of all relative changes in the three populations and exports the plot in the `results`.
++ `phenotypes_distributions.R` shows the distribution of all relative changes in the three populations and exports the plot in the `results`.
 
-+ `PCA.R` show the PCA analysis of the relative changes in the three populations and exports the plot in the `results`.
++ `PCA.R` shows the PCA analysis of the relative changes in the three populations and exports the plot in the `results`.
+
++ `clustering_regmap.R` applies a k-means clustering to the accessions of the Regmap panel based on their relative changes and identifies a group of resilisent accessions. It exports the clustering plot in the `results`.
