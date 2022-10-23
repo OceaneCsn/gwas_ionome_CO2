@@ -21,6 +21,7 @@ The `data_preprocessing` folder contains several scripts for data import and cle
 
 + `phenotypes_outlier_removal.R` imports the preprocessed phenotypes of all populations, and replaces observations that are more than 5 median absolute deviations away from the median by NAs for each phenotype in each population. It  stores the results in the `rdata` folder.
 
++ `regmap_imputed_SNPs_preprocessing.R` imports the raw imputed SNP data from Arouisse et Al. (https://figshare.com/articles/dataset/arabidopsis_2029_Maf001_filter95/11346875), that should be placed in the `data` folder (data not included to this repository because of their size). It reads it with appropriate tools (**This step is requires a lot of memory (RAM)**), keeps only the accessions of the regmap panel present in our experiment, and removes SNPs that do not occurr in the accessions of our experiment. It stores the results in the `rdata` folder.
 
 
 ## Analysis of the natural variability in three populations of Arabidopsis
@@ -34,3 +35,11 @@ The `phenotypic_variability` folder contains the analyses of the natural variabi
 + `PCA.R` shows the PCA analysis of the relative changes in the three populations and exports the plot in the `results`.
 
 + `clustering_regmap.R` applies a k-means clustering to the accessions of the Regmap panel based on their relative changes and identifies a group of resilisent accessions. It exports the clustering plot in the `results`.
+
+
+## Association models on the REGMAP panel
+
+
++ `GWAs_regmap.R` runs Linear Mixed Models on the Regmap Panel via the StatgenGWAS R package. It first cleans the SNP matrix by removing low MAF SNPs and duplicated SNPs, and then runs the association models on each phenotype. Stores the results in the `rdata` folder. Also draws quantile-quantile (qq) plots for GWAs quality control.
+
++ 
