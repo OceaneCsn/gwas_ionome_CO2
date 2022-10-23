@@ -32,5 +32,5 @@ for(trait in unique(t$trait)){
       theme_pubr(legend = "none") + labs_pubr()
   }
   ggexport(plotlist = plots, ncol = 10, width = 16000, height = 12000, nrow = 5,res = 600,
-           filename = paste0("results/Phenotypes/", trait, "_top50_emma_astle_maf0.04.png"))
+           filename = paste0("results/phenotype_", trait, "_top50_emma_astle_maf0.04.png"))
 }
