@@ -17,7 +17,7 @@ draw_manhattan <- function(gwas, trait = NULL, plot = TRUE){
                             pos = dt$pos)
       
       if(plot){
-        png(filename = paste0("results/Manhattan/Manhattan_", t, "_trait_maf0.04_toua.png"), 
+        png(filename = paste0("results/Manhattan_", t, "_trait_maf0.04_toua.png"), 
             width = 1000, height = 700)
         manPlotFast(
           man,

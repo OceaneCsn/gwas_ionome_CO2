@@ -104,6 +104,11 @@ gwas <- runSingleTraitGwas(gData = gData,
 save(gwas, file = "rdata/gwas_all_traits_emma_top50_astle_maf0.04_mad5.rdata")
 
 
+####################### Starting some analyses for GWAs quality
+
+# get significant SNPs
+t <- gwas$signSnp$Y[,c("pValue", "chr", "pos", "allFreq", "snp", "trait")]
+t <- t[order(t$pValue),]
 
 ########## qqplots
 
@@ -117,21 +122,31 @@ gridExtra::grid.arrange(grobs = qqs)
 
 ggexport(plotlist = qqs, 
          width = 1800, height = 1600, ncol = 5, nrow = 6,
-         filename = "results/qqplots/all_qqs_maf0.04_regmap.png")
+         filename = "results/all_qqs_maf0.04_regmap.png")
 
 
-####################### Compare common SNPs between eCO2, aCO2 phenotypes
-# and relative change
+###########  Variance plots
 
-# 
-# venns <- list()
-# elements <- unique(stringr::str_split_fixed(colnames(regmap), '_', 2)[,1])
-# for(el in elements[elements!= "ecotype"]){
-#   DT <- as.data.table(gwas$signSnp$Y)
-#   dt <- DT[stringr::str_detect(trait, paste0(el, '_'))]
-#   venns[[el]] <- DIANE::draw_venn(list("relative change" = dt[dt$trait == paste0(el, '_', 'change'),]$snp,
-#                                        "eCO2" = dt[dt$trait == paste0(el, '_', 'eCo2'),]$snp,
-#                                        "aCO2" = dt[dt$trait == paste0(el, '_', 'aCo2'),]$snp)) + ggtitle(el)
-# }
-# gridExtra::grid.arrange(grobs = venns)
+d <- data.frame(gwas$GWASInfo$varComp$Y)
+d$var <- rownames(d)
+d <- reshape2::melt(d)
+ggplot(d, aes(x = variable, y = value, 
+              label = round(value, 1), 
+              fill = var)) + geom_bar(position="stack", stat = "identity") + 
+  facet_wrap(~variable, scales = "free") + 
+  ggtitle("Variance estimates for mixed models random effects") + 
+  labs(subtitle = "Vg = genetic variance, Ve = residual variance") +
+  scale_fill_brewer(palette = "Set2") + theme_pubr()
+
+
+############# allelic frequency of snps :
+
+ggplot(t[order(t$allFreq),], 
+       aes(x = snp, size = allFreq, color = trait, 
+           y = round(allFreq, 4))) + 
+  geom_point() + 
+  theme(axis.ticks.y = element_blank(),
+        axis.text.y = element_blank()) + coord_flip()
+
+
 
