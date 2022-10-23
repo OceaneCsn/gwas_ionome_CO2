@@ -40,6 +40,10 @@ The `phenotypic_variability` folder contains the analyses of the natural variabi
 ## Association models on the REGMAP panel
 
 
-+ `GWAs_regmap.R` runs Linear Mixed Models on the Regmap Panel via the StatgenGWAS R package. It first cleans the SNP matrix by removing low MAF SNPs and duplicated SNPs, and then runs the association models on each phenotype. Stores the results in the `rdata` folder. Also draws quantile-quantile (qq) plots for GWAs quality control.
++ `GWAs_regmap.R` runs Linear Mixed Models on the Regmap Panel via the StatgenGWAS R package. It first cleans the SNP matrix by removing low MAF SNPs and duplicated SNPs, and then runs the association models on each phenotype. Stores the results in the `rdata` folder. Also draws quantile-quantile (qq) plots for GWAs quality control, as well as variance decomposition and allelic frequencies of top 50 SNPs.
 
-+ 
++ `draw_manhattan_from_GWAs.R` plots the Manhattan plots of the GWAs for each phenotypes. 
+
++ `export_manhattan_from_GWAs_for_IGV.R` writes the Manhattan plots of the GWAs for each phenotypes, so that they can directly be imported in the IGV software and interactively browsed along the Arabidopsis genome.
+
++ `draw_phenotypes_from_GWAs.R` plots the phenotype of plants depending on weather they possess the top 50 SNPs of the GWAs or not, thus showing the effect of top variants on phenotypic responses. 

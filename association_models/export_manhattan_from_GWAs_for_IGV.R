@@ -18,7 +18,7 @@ get_igv_files <- function(gwas){
     colnames(GWAS) <- c("chr", "bp", "snp", "p")
     write.table(GWAS[order(GWAS$chr, GWAS$bp),], 
                 row.names = F, quote = F, sep = '\t', 
-                file = paste0("igv_files/IGV_input_", t, ".gwas"))
+                file = paste0("results/IGV_input_", t, ".gwas"))
   }
 }
 
