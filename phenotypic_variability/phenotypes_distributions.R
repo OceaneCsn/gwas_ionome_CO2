@@ -33,7 +33,7 @@ toua <- ggplot(d, aes(x = variable, y = value, fill = variable)) +
   geom_point(aes(y = value, color = variable), position = position_jitter(width = 0.15), size = 1.25, alpha = 0.9) + 
   geom_boxplot(width = 0.2, outlier.shape = NA, alpha = 0.8, fill = "white") + 
   labs(y = "Relative change (%)", x = NULL) + 
-  ggtitle("TOUA") + 
+  ggtitle("TOU-A") + 
   scale_color_brewer(palette = "Set2", name = "Element")+ 
   scale_fill_brewer(palette = "Set2", name = "Element") + 
   theme_pubr(legend = "none")+ ylim(-70, 150)
@@ -55,7 +55,7 @@ lang <- ggplot(d, aes(x = variable, y = value, fill = variable)) +
   scale_fill_brewer(palette = "Set2", name = "Element") + 
   theme_pubr(legend = "none")+ ylim(-70, 150)
 
-fig <- toua + dist + lang + plot_annotation(tag_levels = 'a') ; fig
+fig <-  dist + lang + toua + plot_annotation(tag_levels = 'a') ; fig
 
 ggexport(fig,
          filename = "results/phenotype_distributions.pdf",
