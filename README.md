@@ -1,8 +1,8 @@
-# GWAS on the ionome response to elevated CO2
+# GWAS of the ionome response to elevated $CO_2$ in Arabidopsis
 
-This repository contains code and partial data for a GWAs on mineral content variation under elevated CO2 in *Arabidopsis thaliana*.
+This repository contains code and data for the article ["Natural genetic variation underlying the negative effect of elevated CO2 on ionome composition in Arabidopsis thaliana", Cassan et al., 2023, eLife](https://elifesciences.org/reviewed-preprints/90170/figures)
 
-Existing literature discloses that there is intra-specific variability in the phenotypic response to rising CO2 in Arabidopsis as well as in plants of agronomic interest. The variability observed in the ionome response to eCO2 was however never explained by genomic determinants in plants, even though it has the potential to fuel the discovery of new candidate genes controlling their mineral depletion. We detail here a GWAs project with the aim to identify genetic determinants of mineral status response to CO2 elevation. 
+Existing literature discloses that there is intra-specific variability in the phenotypic response to rising $CO_2$ in Arabidopsis as well as in plants of agronomic interest. We detail here a GWAs project with the aim to identify genetic determinants of mineral status response to $CO_2$ elevation. 
 
 
 ## Data
@@ -17,7 +17,7 @@ The `rdata` folder contains raw, pre-processed, and outliers-free phenotype phen
 
 The `data_preprocessing` folder contains several scripts for data import and cleaning:
 
-+ `phenotypes_preprocessing.R` imports the raw csv phenotypes of all populations, computes the relative changes caused by eCO2 for all elements, and stores the result in the `rdata` folder.
++ `phenotypes_preprocessing.R` imports the raw csv phenotypes of all populations, computes the relative changes caused by e$CO_2$ for all elements, and stores the result in the `rdata` folder.
 
 + `phenotypes_outlier_removal.R` imports the preprocessed phenotypes of all populations, and replaces observations that are more than 5 median absolute deviations away from the median by NAs for each phenotype in each population. It  stores the results in the `rdata` folder.
 
