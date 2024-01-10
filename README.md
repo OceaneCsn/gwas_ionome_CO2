@@ -1,6 +1,6 @@
 # GWAS of the ionome response to elevated $CO_2$ in Arabidopsis
 
-This repository contains code and data for the article ["Natural genetic variation underlying the negative effect of elevated CO2 on ionome composition in Arabidopsis thaliana", Cassan et al., 2023, eLife](https://elifesciences.org/reviewed-preprints/90170/figures)
+This repository contains code and data for the article ["Natural genetic variation underlying the negative effect of elevated CO2 on ionome composition in Arabidopsis thaliana", Cassan et al., 2023, eLife.](https://elifesciences.org/reviewed-preprints/90170)
 
 Existing literature discloses that there is intra-specific variability in the phenotypic response to rising $CO_2$ in Arabidopsis as well as in plants of agronomic interest. We detail here a GWAs project with the aim to identify genetic determinants of mineral status response to $CO_2$ elevation. 
 
